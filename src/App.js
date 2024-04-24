@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './Header';
+import MenuSection from './MenuSection';
+import ReviewSection from './ReviewSection';
+import ContactSection from './ContactSection';
+import Footer from './Footer';
+import Dishes from './DishesSections';
+import Cart from './Cart';
+import HomePage from './HomePage';
+import LoginForm from './connection/LoginForm';
+import SignUpForm from './connection/SignUpForm';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        
+        
+        
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/Dishes" element={<Dishes />} />
+            <Route path="/cart" element={<Cart />}/>
+            <Route path="/menu" element={<MenuSection />} />
+            <Route path="/reviews" element={<ReviewSection />} />
+            <Route path="/contact" element={<ContactSection />} />
+            <Route path="/login" element={<LoginForm/>}/>
+            <Route path="/signup" element={<SignUpForm />}/>
+          </Routes>
+        </main>
+       
+        
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
